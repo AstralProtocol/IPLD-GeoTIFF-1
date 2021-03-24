@@ -1,5 +1,37 @@
 # Geotiff-Ipld
 
+## Gitbook Intro and Overview
+[GeoTIFFs and IPLD](https://docs.astral.global/develop/ipld-and-geotiffs)
+
+## Example in Repo
+``` 
+import { getImageFromUrl, startTile, getGeoTile } from "ipld-geotiff";
+import { IPFS, create } from "ipfs";
+
+async function example(){
+    const url = 'http://download.osgeo.org/geotiff/samples/gdal_eg/cea.tif';
+    
+    // bbox that is sent from client
+    const request = [
+        -28493.166784412522,
+        4224973.143255847,
+        2358.211624949061,
+        4255884.5438021915
+    ];
+    
+    // First create instance of IPFS
+    const ipfs: IPFS = await create();
+    
+    // Request TIFF from Endpoint
+    const image = await getImageFromUrl(url);
+    // Start the tiling and encoding process 
+    const ires: IResponse =  await startTile(ipfs, image);
+
+    // Use GetGeoTile to obtain the tile that you would like
+    const tiff_of_tile = await getGeoTile(ipfs, ires.cid, ires.max_Dimensions);
+}
+```
+
 ## Introduction
 One of Astral's main tenets, was to bring cloud native Geospatial capabilities to the Web3 space. While working with Protocol Labs tech for the past few months, we gained some insight into how, IPLD data structures, libp2p, IPFS, FFS, can enable us to make the aforementioned a reality.
 

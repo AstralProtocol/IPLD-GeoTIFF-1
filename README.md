@@ -1,5 +1,11 @@
 # Geotiff-Ipld
 
+## Project Status: Archived – Continued Under the EASIER Data Initiative  
+
+This repository contains an earlier demo exploring storing geospatial data on IPFS. While this specific project is no longer maintained, its core ideas and development continue under the **EASIER Data Initiative**.  
+
+For the latest advancements, updates, and contributions, please visit [EASIER](https://easierdata.org/). This archive remains available as a reference for those interested in its historical context and implementation details.
+
 ## Gitbook Intro and Overview
 [GeoTIFFs and IPLD](https://docs.astral.global/develop/ipld-and-geotiffs)
 
